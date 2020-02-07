@@ -2,6 +2,11 @@ language: ruby
 rvm:
   - 2.7.0
 sudo: false
+before_install:
+- gem uninstall bundler -x || gem uninstall bundler -a || true
+- gem install bundler --version=2.1.2
+install:
+- bundle install
 script: bundle exec rake deploy
 env:
   global:
